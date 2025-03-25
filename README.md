@@ -1,3 +1,4 @@
+![WIP](https://img.shields.io/badge/status-WIP-yellow)
 # Novelty-Quantum-Emulator
 Single-file quantum computer emulator. Currently, it has minimal functionality but is capable of running some simple quantum circuits with accuracy. Runs on Python.<br/>
 <br/>
