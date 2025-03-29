@@ -77,6 +77,24 @@ class Circuit:
                     
             self.state = matrix @ self.state
 
+    '''Measure specific qubits'''
+    def measure(self, *qubits):
+        for qubit in qubits:
+            
+            group_0 = [(i >> (self.n - qubit)) & 1 == 0 for i in range(2**self.n)]
+            group_1 = [(i >> (self.n - qubit)) & 1 == 1 for i in range(2**self.n)]
+    
+            prob_0 = np.sum(np.abs(self.state[group_0])**2)
+            prob_1 = np.sum(np.abs(self.state[group_1])**2)
+    
+            measurement = np.random.choice([0, 1], p=[prob_0, prob_1])
+            
+            mask = group_0 if measurement == 0 else group_1
+            self.state = np.where(mask, self.state, 0)
+            self.state /= np.linalg.norm(self.state)
+    
+            return measurement
+
     '''Measure all qubits'''
     def measure_all(self, collapse=True):
         probabilities = np.abs(self.state) ** 2
@@ -93,22 +111,19 @@ class Circuit:
     def show(self):
         print(self.state.reshape(-1,1))
 
-'''
-DIRACIFY FUNCTION
-'''
-def diracify(state):
-    n = int(np.log2(len(state)))
-    terms = []
-    
-    for i, amplitude in enumerate(state):
+    '''Display state vector in Dirac notation'''
+    def diracify(self):
+        terms = []
         
-        if not np.isclose(amplitude, 0):
-            basis = format(i, f'0{n}b')
-            amp = f"({amplitude:.3f})"
-            terms.append(f"{amp} \033[1m|{basis}⟩\033[0m")
-    
-    return " + ".join(terms)
-
+        for i, amplitude in enumerate(self.state):
+            
+            if not np.isclose(amplitude, 0):
+                basis = format(i, f'0{self.n}b')
+                amp = f"({amplitude:.3f})"
+                terms.append(f"{amp} \033[1m|{basis}⟩\033[0m")
+        
+        print(" + ".join(terms))
+        
 '''
 EXAMPLE USAGE
 '''
@@ -120,9 +135,7 @@ qc.apply(X, 2, 3)
 qc.apply(X, 1, 2)
 qc.apply(X, 1)
 qc.show()
-
-# display in Dirac notation
-print(diracify(qc.state))
+qc.diracify()
 
 # measure circuit 1000 times
 results = [qc.measure_all(False) for _ in range(1000)]
