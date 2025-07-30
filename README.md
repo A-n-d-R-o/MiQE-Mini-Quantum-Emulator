@@ -36,7 +36,7 @@ Alternatively, just copy the code into the same Python code file without importi
 - Unary and multi-control qubit gate implementation, with a near-complete quantum gate library.
 - Partial and full measurements.
 - Simple dephasing and depolarising channels (exclusive to density matrices).
-- LaTeX visualisation of: state vectors (column form and Dirac notation) and density matrices.
+- LaTeX visualisation of state vectors (column form and Dirac notation) and density matrices.
 - Probability amplitude plotting using Matplotlib.
 - Circuit execution with basis state measurement plots.
 
