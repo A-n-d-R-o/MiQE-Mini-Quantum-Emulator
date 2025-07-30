@@ -2,7 +2,7 @@
 
 # MiQE: Mini Quantum Emulator
 
-**Single-file quantum computer emulator.**  
+**Single-file quantum computer emulator. Runs on Python.**  
 
 Currently capable of simulating small-scale (below 10 qubits) quantum algorithms and circuits.
 
