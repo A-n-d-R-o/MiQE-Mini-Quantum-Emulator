@@ -103,7 +103,7 @@ Application of a (multi-)controlled gate.
 
 * `gate` (*gate symbol* str): the name of the gate to be applied to the target qubit.
 * `control` (int or list[int]): the indices of the control qubit(s).
-* `target` (int): the index of the target qubit. This cannot be included in the values passed into thr `control` input parameter.
+* `target` (int): the index of the target qubit. This cannot be included in the values passed into the `control` input parameter.
 
 ```python
 def SWAP(self, q0, q1):
@@ -199,7 +199,7 @@ Plots the probability amplitudes associated with each basis state of the current
 * `output` (str or list[str]): the output format. if `'list'` (default) returns a list of the all basis states with their corresponding probability of being measured. If `'plot'` returns a Matplotlib bar chart of the same information.
 * `dims` (list[float, float]): the width and height of the plot. Defaulted to the default Matplotlib dimensions
 * `x_rot` (float): the rotation (in degrees) of the xtick marks/labels. This is the same as in Matplotlib. Defaulted to 0.
-* `by_qubit` (bool): if False (defualt) returns information about the probabilities associated with standard basis states. If True, returns information on the probability of measuring each qubit index, irrespective of the other outcome states.
+* `by_qubit` (bool): if False (default) returns information about the probabilities associated with standard basis states. If True, returns information on the probability of measuring each qubit index, irrespective of the other outcome states.
 
 ### Helper Methods
 
@@ -218,7 +218,7 @@ Applies the full-circuit gate to the quantum system.
 def __clean_format(element):
 ```
 
-Makes defualt numpy complex numbers more pleasing on the eye.
+Makes default numpy complex numbers more pleasing on the eye.
 
 * `element` (complex float): the complex number to tidy up.
 
@@ -236,4 +236,4 @@ Runs a quantum circuit (built as a function) a set number of times and outputs i
 * `output` (str or list[str]): the output format. if `'list'` (default) returns a list of the all measured basis states and the number of times that state was measured. If `'plot'` returns a Matplotlib bar chart of the same information.
 * `dims` (list[float, float]): the width and height of the plot. Defaulted to the default Matplotlib dimensions
 * `x_rot` (float): the rotation (in degrees) of the xtick marks/labels. This is the same as in Matplotlib. Defaulted to 0.
-* `by_qubit` (bool): if False (defualt) returns information about the outcome measurements associated with standard basis states. If True, returns information on the number of time each qubit index was measured in the 0 or 1 state.
+* `by_qubit` (bool): if False (default) returns information about the outcome measurements associated with standard basis states. If True, returns information on the number of time each qubit index was measured in the 0 or 1 state.
