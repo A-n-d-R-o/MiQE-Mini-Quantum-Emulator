@@ -31,7 +31,7 @@ Alternatively, just copy the code into the same Python code file without importi
 
 ## Current Features
 
-- Initializsation and conversion between state vector and density matrix forms.
+- Initialisation and conversion between state vector and density matrix forms.
 - Single-qubit Pauli error simulation and random error injection.
 - Unary and multi-control qubit gate implementation, with a near-complete quantum gate library.
 - Partial and full measurements.
