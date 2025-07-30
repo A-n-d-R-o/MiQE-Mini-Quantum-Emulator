@@ -21,7 +21,7 @@ This project is inspired by Qiskit, and although not nearly as powerful, efficie
 
 ## Installation
 
-To use, place [MiQE.py](MiQE.py) into the same directory as the file you are importing to, ensuring you have the required packages installed on your system, and then simply run:
+To use, place [MiQE.py](MiQE.py) into the same directory as the file you are importing to and, ensuring you have the required packages installed on your system, simply run:
 ```python
 from MiQE import *
 ```
