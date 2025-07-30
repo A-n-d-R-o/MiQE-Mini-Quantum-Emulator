@@ -11,6 +11,7 @@ Uses big-endian convention for qubit ordering.
 This easy-to-use program is intended for:
 - Learners wanting to understand the logic behind quantum computation.
 - Users who want to simulate their own simple quantum systems.
+- Users who want to build their own quantum emulator using a simple jumping-off point.
 
 The compact and low-complexity design of **MiQE** makes it easy to modify the source code for a variety of uses and quantum computing investigations.
 
