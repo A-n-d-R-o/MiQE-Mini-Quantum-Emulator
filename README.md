@@ -13,7 +13,7 @@ This easy-to-use program is intended for:
 
 The compact and low-complexity design of **MiQE** makes it easy to modify the source code for a variety of uses and quantum computing investigations.
 
-This project is inspired by Qiskit, and although not nearly as powerful, efficient, or useful as Qiskit **MiQE** is still more than sufficient for basis tasks.
+This project is inspired by Qiskit, and although not nearly as powerful, efficient, or useful as Qiskit, **MiQE** is still more than sufficient for basic tasks.
 
 ---
 
