@@ -16,6 +16,11 @@ The compact and low-complexity design of **MiQE** makes it easy to modify the so
 
 This project is inspired by Qiskit, and although not nearly as powerful, efficient, or useful as Qiskit, **MiQE** is still more than sufficient for basic tasks.
 
+To use, ensure you have the required packages installed on your system, and then simply run:
+```python
+from MiQE import *
+```
+
 ---
 
 ## Current Features
