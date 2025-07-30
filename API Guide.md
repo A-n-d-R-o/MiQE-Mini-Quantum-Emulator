@@ -87,6 +87,29 @@ Application of a (multi-)controlled gate.
 ```python
 def SWAP(self, q0, q1):
 ```
+
 Application of the SWAP gate.
 
 * `q0` (int) and `q1` (int): the qubit indices to swap around.
+
+### Channel Methods (only for `'DensityMatrix'` structure)
+
+```python
+def dephase(self, *qubits, epsilon=1.0):
+```
+
+The `dephase` channel introduces noise by zeroing out off-diagonal entries of the density matrix. The magnitude of the 'zeroing out' is defined by epsilon. Essentially eliminates superposition, turning the system into a classical probabilistic state.
+
+* `*qubits` (int): the qubits to apply dephasing to.
+* `epsilon` (float): ranging from 0 to 1, this defines how zeroed out the off-diagonal entries should be, where 0 means no dephasing and 1 means full dephasing (density matrix is turned into a diagonal matrix).
+
+```python
+def depolarise(self, *qubits, epsilon=1.0):
+```
+
+The `depolarise` channel destroys the quantum information contained within a qubit by transforming it into the completely mixed state.
+
+**Note:** after applying this gate, the structure cannot be changed to `'StateVector'` and the system cannot be measured (this is a major limitation in the usefulness of this method).
+
+* `*qubits` (int): the qubits to apply depolarisation to.
+* `epsilon` (float): ranging from 0 to 1, this defines how destroyed the information held by the qubit should be. If 0, then no destruction occurs, if 1, then all information is lost.
