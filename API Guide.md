@@ -17,7 +17,7 @@
 
 ## Required Packages
 
-* numpy: for vast majority of mathematical functions and numbers.
+* `numpy`: for vast majority of mathematical functions and numbers.
 * `numpy.linalg`: for linear algebra, including vector norm and eigensystem calculation.
 * `functools.reduce`: for taking the Kronecker product between matrices in gate paths.
 * `IPython.display.display` and `IPython.display.Math`: formatting and displaying LaTeX visualisation.
