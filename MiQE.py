@@ -114,7 +114,7 @@ class QuantumCircuit:
             for i in range(self.n):
                 if i in control:
                     inactive_path.append(proj_0 if bitstring[control_index] == '0' else proj_1)
-                    self.add_gate_errors(qubit)
+                    self.add_gate_errors(i)
                     control_index += 1
                 else:
                     inactive_path.append(I)
