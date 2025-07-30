@@ -20,6 +20,7 @@ To use, place [MiQE.py](MiQE.py) into the same directory as the file you are imp
 ```python
 from MiQE import *
 ```
+Or just copy the code into the same file and use as is without importing.
 
 ---
 
