@@ -232,7 +232,7 @@ def run_circuit(circuit, shots=1, output='list', dims=[6.4, 4.8], x_rot=0, by_qu
 
 Runs a quantum circuit (built as a function) a set number of times and outputs information on the measurement results.
 
-* `circuit` (Callable): the quantum circuit function you wish to run. **Note:** `run_circuit` is designed to run quantum circuits which simulate noise, hence why the circuit needs to be rebuilt every time. If you wish to run a noiseless circuit, it would be more efficient to loop over the `measure_all(False)` method and store the data yourself.
+* `circuit` (function): the quantum circuit function you wish to run. **Note:** `run_circuit` is designed to run quantum circuits which simulate noise, hence why the circuit needs to be rebuilt every time. If you wish to run a noiseless circuit, it would be more efficient to loop over the `measure_all(False)` method and store the data yourself.
 * `output` (str or list[str]): the output format. if `'list'` (default) returns a list of the all measured basis states and the number of times that state was measured. If `'plot'` returns a Matplotlib bar chart of the same information.
 * `dims` (list[float, float]): the width and height of the plot. Defaulted to the default Matplotlib dimensions
 * `x_rot` (float): the rotation (in degrees) of the xtick marks/labels. This is the same as in Matplotlib. Defaulted to 0.
