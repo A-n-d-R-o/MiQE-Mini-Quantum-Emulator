@@ -42,7 +42,7 @@ The method that initialises the quantum system. Where the formalism (hereinafter
 
 * `num_qubits` (int): the number of qubits to be emulated, given the limitation of the Python language and memory size, this number will have a low upper limit, depending on the system which the program is on.
 * `structure` (str or None): if None then it automatically sets the structure to `'StateVector'` (a column vector representing each basis state with probability amplitudes), using `'StateVector'` allows for Dirac notation simulation and faster code. If `'DensityMatrix'`, then a density matrix structure will be used (matrix produced from taking the outer product of a state vector with itself). Using `'DensityMatrix'` allows for channel implementation.
-* `xyz_errors` (list[float]): a list of 3 floats, ranging from 0 to 1. Respectively, these numbers represent the error rates for Pauli-X, Pauli-Y, and Pauli-Z errors acting on qubits during implementation of operations and measurement gates.
+* `xyz_errors` (list[float, float, float]): a list of 3 floats, ranging from 0 to 1. Respectively, these numbers represent the error rates for Pauli-X, Pauli-Y, and Pauli-Z errors acting on qubits during implementation of operations and measurement gates.
 * `random_error ` (float): float ranging from 0 to 1, specifying the random noise rate present in the system, it is more general than the `xyz_errors` input parameter.
 
 The error parameters default to 0. No noise is simulated unless specified.
@@ -170,7 +170,49 @@ def diracify(self):
 Only for `'StateVector'` structures. This transforms the column vector into Dirac notation.
 
 ```python
-def plot_probs(self, output=[], dims=[6.4, 4.8], x_rot=0, by_qubit=False):
+def plot_probs(self, output='list', dims=[6.4, 4.8], x_rot=0, by_qubit=False):
 ```
 
 Plots the probability amplitudes associated with each basis state of the current quantum system.
+
+* `output` (str or list[str]): the output format. if `'list'` (default) returns a list of the all basis states with their corresponding probability of being measured. If `'plot'` returns a Matplotlib bar chart of the same information.
+* `dims` (list[float, float]): the width and height of the plot. Defaulted to the default Matplotlib dimensions
+* `x_rot` (float): the rotation (in degrees) of the xtick marks/labels. This is the same as in Matplotlib. Defaulted to 0.
+* `by_qubit` (bool): if False (defualt) returns information about the probabilities associated with standard basis states. If True, returns information on the probability of measuring each qubit index, irrespective of the other outcome states.
+
+### Helper Methods
+
+These methods are not to be accessed to called by the user; they're private methods to make the code more compact.
+
+```python
+def __apply_gate(self, gate):
+```
+
+Applies the full-circuit gate to the quantum system.
+
+* `gate` (matrix): the full-circuit gate, created by taking the Kronecker product between relevant matrices.
+
+```python
+@staticmethod
+def __clean_format(element):
+```
+
+Makes defualt numpy complex numbers more pleasing on the eye.
+
+* `element` (complex float): the complex number to tidy up.
+
+---
+
+## `run_circuit` Function
+
+```python
+def run_circuit(circuit, shots=1, output='list', dims=[6.4, 4.8], x_rot=0, by_qubit=False):
+```
+
+Runs a quantum circuit (built as a function) a set number of times and outputs information on the measurement results.
+
+* `circuit` (Callable): the quantum circuit function you wish to run. **Note:** `run_circuit` is designed to run quantum circuit which simulate noise, hence why the circuit needs to be rebuilt every time. If you wish to run a noiseless circuit, it would be more efficient to loop over the `measure_all(False)` method and store the data yourself.
+* `output` (str or list[str]): the output format. if `'list'` (default) returns a list of the all measured basis states and the number of times that state was measured. If `'plot'` returns a Matplotlib bar chart of the same information.
+* `dims` (list[float, float]): the width and height of the plot. Defaulted to the default Matplotlib dimensions
+* `x_rot` (float): the rotation (in degrees) of the xtick marks/labels. This is the same as in Matplotlib. Defaulted to 0.
+* `by_qubit` (bool): if False (defualt) returns information about the outcome measurements associated with standard basis states. If True, returns information on the number of time each qubit index was measured in the 0 or 1 state.
