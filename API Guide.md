@@ -13,6 +13,8 @@
    * [Helper Methods](#helper-methods)
  * [run_circuit Function](#run_circuit-function)
 
+---
+
 ## Required Packages
 
 * numpy: for vast majority of mathematical functions and numbers.
