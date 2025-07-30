@@ -3,6 +3,7 @@
 # MiQE: Mini Quantum Emulator
 
 **Single-file quantum computer emulator.**  
+
 Currently capable of simulating small-scale (below 10 qubits) quantum algorithms and circuits.
 
 Uses big-endian convention for qubit ordering.
