@@ -1,3 +1,7 @@
+## Contents
+
+ - [Required Packages](#required-packages)
+
 ## Required Packages
 
 * numpy: for vast majority of mathematical functions and numbers.
@@ -31,6 +35,8 @@ def P(phi):
 ```python
 class QuantumCircuit:
 ```
+
+
 
 ### Initialiser Method
 
