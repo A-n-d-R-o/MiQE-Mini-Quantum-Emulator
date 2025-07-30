@@ -45,6 +45,8 @@ The method that initialises the quantum system. Where the formalism (hereinafter
 * `xyz_errors` (list[float]): a list of 3 floats, ranging from 0 to 1. Respectively, these numbers represent the error rates for Pauli-X, Pauli-Y, and Pauli-Z errors acting on qubits during implementation of operations and measurement gates.
 * `random_error ` (float): float ranging from 0 to 1, specifying the random noise rate present in the system, it is more general than the `xyz_errors` input parameter.
 
+The error parameters default to 0. No noise is simulated unless specified.
+
 ### Noise Methods
 
 ```python
@@ -98,10 +100,10 @@ Application of the SWAP gate.
 def dephase(self, *qubits, epsilon=1.0):
 ```
 
-The `dephase` channel introduces noise by zeroing out off-diagonal entries of the density matrix. The magnitude of the 'zeroing out' is defined by epsilon. Essentially eliminates superposition, turning the system into a classical probabilistic state.
+The `dephase` channel introduces noise by zeroing out off-diagonal entries of the density matrix. The magnitude of the zeroing out is defined by epsilon. Essentially eliminates superposition, turning the system into a classical probabilistic state.
 
 * `*qubits` (int): the qubits to apply dephasing to.
-* `epsilon` (float): ranging from 0 to 1, this defines how zeroed out the off-diagonal entries should be, where 0 means no dephasing and 1 means full dephasing (density matrix is turned into a diagonal matrix).
+* `epsilon` (float): ranging from 0 to 1, this defines how zeroed out the off-diagonal entries should be, where 0 means no dephasing and 1 (default) means full dephasing (density matrix is turned into a diagonal matrix).
 
 ```python
 def depolarise(self, *qubits, epsilon=1.0):
@@ -112,4 +114,63 @@ The `depolarise` channel destroys the quantum information contained within a qub
 **Note:** after applying this gate, the structure cannot be changed to `'StateVector'` and the system cannot be measured (this is a major limitation in the usefulness of this method).
 
 * `*qubits` (int): the qubits to apply depolarisation to.
-* `epsilon` (float): ranging from 0 to 1, this defines how destroyed the information held by the qubit should be. If 0, then no destruction occurs, if 1, then all information is lost.
+* `epsilon` (float): ranging from 0 to 1, this defines how destroyed the information held by the qubit should be. If 0, then no destruction occurs, if 1 (default), then all information is lost.
+
+### Measurement Methods
+
+```python
+def measure(self, *qubits, collapse=True):
+```
+
+Implement partial measurement on the system.
+
+* `*qubits` (int): the qubit indices to measure.
+* `collapse` (bool): if True (default), then the system retains its measured state (it stays measured), if False then the system does not evolve into the measured state, but retains its pre-measured state.
+
+```python
+def measure_all(self, collapse=True):
+```
+
+Implements full measurement of the quantum system.
+
+* `collapse` (bool): if True (default), then the system evolves into the measured standard basis state, if False, then the system retains its pre-measured state.
+
+### Transformation Methods
+
+```python
+def to_density_matrix(self, permanent=False):
+```
+
+Converts a `'StateVector'` structure into a `'DensityMatrix'` structure.
+
+* `permanent` (bool): if True, the system stays as a `'DensityMatrix'`, if False (default), then the system does not change after executing this method.
+
+```python
+def to_state_vector(self, permanent=False):
+```
+
+Converts a `'DensityMatrix'` structure into a `'StateVector'` structure.
+
+* `permanent` (bool): if True, the system stays as a `'StateVector'`, if False (default), then the system does not change after executing this method.
+
+### Visualisation Methods
+
+```python
+def show(self, latex=False)
+```
+
+Displays the current state of the system, as either a column vector for `'StateVector'` structures or as a density matrix for `'DensityMatrix'` structures.
+
+* `latex` (bool): if True, then the method returns a formatted and clean LaTeX output, if False (default) then the output is a regular Python object.
+
+```python
+def diracify(self):
+```
+
+Only for `'StateVector'` structures. This transforms the column vector into Dirac notation.
+
+```python
+def plot_probs(self, output=[], dims=[6.4, 4.8], x_rot=0, by_qubit=False):
+```
+
+Plots the probability amplitudes associated with each basis state of the current quantum system.
