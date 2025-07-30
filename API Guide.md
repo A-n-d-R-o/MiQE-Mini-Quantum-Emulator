@@ -1,6 +1,17 @@
 ## Contents
 
- - [Required Packages](#required-packages)
+ * [Required Packages](#required-packages)
+ * [Gate Library](#gate-library)
+ * [QuantumCircuit Class](#quantumcircuit-class)
+   * [Initialiser Method](#initialiser-method)
+   * [Noise Methods](#noise-methods)
+   * [Operation Methods](#operation-methods)
+   * [Channel Methods](#channel-methods)
+   * [Measurement Methods](#measurement-methods)
+   * [Transformation Methods](#transformation-methods)
+   * [Visualisation Methods](#visualisation-methods)
+   * [Helper Methods](#helper-methods)
+ * [run_circuit Function](#run_circuit-function)
 
 ## Required Packages
 
@@ -100,7 +111,9 @@ Application of the SWAP gate.
 
 * `q0` (int) and `q1` (int): the qubit indices to swap around.
 
-### Channel Methods (only for `'DensityMatrix'` structure)
+### Channel Methods
+
+These methods are only for `'DensityMatrix'` structures.
 
 ```python
 def dephase(self, *qubits, epsilon=1.0):
