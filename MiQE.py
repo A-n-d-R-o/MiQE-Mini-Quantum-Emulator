@@ -318,7 +318,7 @@ class QuantumCircuit:
         
         print(" + ".join(terms))
 
-    def plot_probs(self, output=[], dims=[6.4, 4.8], x_rot=0, by_qubit=False):
+    def plot_probs(self, output='list', dims=[6.4, 4.8], x_rot=0, by_qubit=False):
 
         if isinstance(output, str):
             output = [output]
@@ -427,7 +427,7 @@ class QuantumCircuit:
     
         return value
 
-def run_circuit(circuit, shots=1, output=[], dims=[6.4, 4.8], x_rot=0, by_qubit=False):
+def run_circuit(circuit, shots=1, output='list', dims=[6.4, 4.8], x_rot=0, by_qubit=False):
 
     if isinstance(output, str):
         output = [output]
