@@ -201,7 +201,7 @@ Private methods to make the code more compact; not to be called by the user dire
 def __apply_gate(self, gate):
 ```
 
-Applies the full-circuit gate to the quantum system.
+Applies a full-circuit gate to the quantum system.
 
 * `gate` (matrix): the full-circuit gate, created by taking the Kronecker product between relevant matrices.
 
