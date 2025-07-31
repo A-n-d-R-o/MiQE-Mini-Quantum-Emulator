@@ -105,14 +105,6 @@ Application of a (multi-)controlled gate.
 * `control` (int or list[int]): the indices of the control qubit(s).
 * `target` (int): the index of the target qubit. This cannot be included in the values passed into the `control` input parameter.
 
-```python
-def SWAP(self, q0, q1):
-```
-
-Application of the SWAP gate.
-
-* `q0` (int) and `q1` (int): the qubit indices to swap around.
-
 ### Channel Methods
 
 These methods are only for `'DensityMatrix'` structures.
