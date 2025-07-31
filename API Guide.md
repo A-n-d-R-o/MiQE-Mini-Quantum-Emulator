@@ -195,7 +195,7 @@ Plots the probability amplitudes associated with each basis state of the current
 
 ### Helper Methods
 
-These methods are not to be accessed to called by the user; they're private methods to make the code more compact.
+Private methods to make the code more compact; not to be called by the user directly.
 
 ```python
 def __apply_gate(self, gate):
