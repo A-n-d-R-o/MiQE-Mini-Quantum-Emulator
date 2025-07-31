@@ -210,9 +210,9 @@ Applies a full-circuit gate to the quantum system.
 def __clean_format(element):
 ```
 
-Makes default numpy complex numbers more pleasing on the eye.
+Turns default numpy complex numbers into LaTeX formatting. The number is also rounded to 5 significant figures.
 
-* `element` (complex float): the complex number to tidy up.
+* `element` (complex float): the complex number to be processed.
 
 ---
 
