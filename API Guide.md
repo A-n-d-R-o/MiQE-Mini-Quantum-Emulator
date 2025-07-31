@@ -21,7 +21,7 @@
 * `numpy.linalg`: for linear algebra, including vector norm and eigensystem calculation.
 * `functools.reduce`: for taking the Kronecker product between matrices in gate paths.
 * `IPython.display.display` and `IPython.display.Math`: formatting and displaying LaTeX visualisation.
-* `matplotlib.pyploy`: for clean visualisation and plotting tools.
+* `matplotlib.pyplot`: for clean visualisation and plotting tools.
 
 ---
 
