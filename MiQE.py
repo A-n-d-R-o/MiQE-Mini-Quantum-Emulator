@@ -372,7 +372,7 @@ class QuantumCircuit:
                 for bar in bars_0 + bars_1:
                     height = bar.get_height()
                     ax.annotate(f'{height:.3g}',
-                    xy=(bar.get_x() + bar.get_width() / 2, height+offset),
+                    xy=(bar.get_x() + bar.get_width() / 2, height + offset),
                     ha='center')
 
                 plt.show()
@@ -388,7 +388,7 @@ class QuantumCircuit:
                 y_min, y_max = plt.ylim()
                 offset = (y_max - y_min) / 100
                 for i in range(self.dim):
-                    plt.text(i, probs[i]+offset, f'{probs[i]:.3g}', ha='center')
+                    plt.text(i, probs[i] + offset, f'{probs[i]:.3g}', ha='center')
                 
                 plt.show()
 
@@ -479,7 +479,7 @@ def run_circuit(circuit, shots=1, output='list', dims=[6.4, 4.8], x_rot=0, by_qu
             for bar in bars_0 + bars_1:
                 height = bar.get_height()
                 ax.annotate(f'{height}',
-                xy=(bar.get_x() + bar.get_width() / 2, height+offset),
+                xy=(bar.get_x() + bar.get_width() / 2, height + offset),
                 ha='center')
             
             plt.show()
@@ -494,6 +494,6 @@ def run_circuit(circuit, shots=1, output='list', dims=[6.4, 4.8], x_rot=0, by_qu
             y_min, y_max = plt.ylim()
             offset = (y_max - y_min) / 100
             for i in range(len(states)):
-                plt.text(i, counts[i]+offset, counts[i], ha='center')
+                plt.text(i, counts[i] + offset, counts[i], ha='center')
                 
             plt.show()
