@@ -210,7 +210,7 @@ Applies a full-circuit gate to the quantum system.
 def __clean_format(element):
 ```
 
-Turns default numpy complex numbers into LaTeX formatting. The number is also rounded to 5 significant figures.
+Turns default numpy complex numbers into a more readable and visually pleasing format, such as ignoring null components, rouding to 5 significant figures, and turning 'j' into 'i' for the imaginary unit.
 
 * `element` (complex float): the complex number to be processed.
 
