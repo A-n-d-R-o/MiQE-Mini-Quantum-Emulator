@@ -413,7 +413,7 @@ class QuantumCircuit:
             else:
                 re_string = f'{int(re)}' if np.isclose(re, round(re)) else f'{re:.5g}'
                 im_string = f'{int(abs(im))}' if np.isclose(abs(im), round(abs(im))) else f'{abs(im):.5g}'
-                sign = '+' if i > 0 else '-'
+                sign = '+' if im > 0 else '-'
                 value = f'{re_string}{sign}{im_string}i'
         else:
             value = f'{int(element)}' if np.isclose(element, round(element)) else f'{element:.5g}'
