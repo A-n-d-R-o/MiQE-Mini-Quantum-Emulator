@@ -196,9 +196,9 @@ class QuantumCircuit:
             results[f'q{qubit}'] = measurement
     
             if collapse:
+                new_state = np.zeros_like(self.state)
                 
                 if self.structure == 'StateVector':
-                    new_state = np.zeros_like(self.state)
                     if measurement == 0:
                         new_state[list_0] = self.state[list_0]
                     elif measurement == 1:
@@ -207,7 +207,6 @@ class QuantumCircuit:
                     
                 elif self.structure == 'DensityMatrix':
                     indices = list_0 if measurement == 0 else list_1
-                    new_state = np.zeros_like(self.state)
                     sub_indices = np.ix_(indices, indices)
                     new_state[sub_indices] = self.state[sub_indices]
                     self.state = new_state / np.trace(new_state)
@@ -228,11 +227,11 @@ class QuantumCircuit:
         basis_measurement = np.binary_repr(measurement, width=self.n)
 
         if collapse:
+            self.state = np.zeros_like(self.state)
+            
             if self.structure == 'StateVector':
-                self.state = np.zeros_like(self.state)
                 self.state[measurement] = 1
             elif self.structure == 'DensityMatrix':
-                self.state = np.zeros_like(self.state)
                 self.state[measurement, measurement] = 1
 
         return basis_measurement
