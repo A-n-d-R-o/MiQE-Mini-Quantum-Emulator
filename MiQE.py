@@ -233,7 +233,7 @@ class QuantumCircuit:
                 self.state[measurement] = 1
             elif self.structure == 'DensityMatrix':
                 self.state = np.zeros_like(self.state)
-                self.state[i, i] = 1
+                self.state[measurement, measurement] = 1
 
         return basis_measurement
 
