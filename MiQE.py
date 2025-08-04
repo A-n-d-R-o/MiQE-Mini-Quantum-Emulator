@@ -71,6 +71,7 @@ class QuantumCircuit:
                 
                 expanded_error = reduce(np.kron, error_path)
                 self.__apply_gate(expanded_error)
+                self.state /= np.linalg.norm(self.state)
 
     def add_noise(self):
 
@@ -81,6 +82,7 @@ class QuantumCircuit:
                     
                     expanded_error = reduce(np.kron, error_path)
                     self.__apply_gate(expanded_error)
+                    self.state /= np.linalg.norm(self.state)
 
     '''operation methods'''
     def gate(self, gate, *qubits): 
@@ -92,6 +94,7 @@ class QuantumCircuit:
             
             expanded_gate = reduce(np.kron, path)
             self.__apply_gate(expanded_gate)
+            self.state /= np.linalg.norm(self.state)
 
     def C(self, gate, control, target):
         
@@ -135,6 +138,7 @@ class QuantumCircuit:
     
         expanded_gate += reduce(np.kron, active_path)
         self.__apply_gate(expanded_gate)
+        self.state /= np.linalg.norm(self.state)
 
     '''channel methods'''
     def dephase(self, *qubits, epsilon=1.0):
