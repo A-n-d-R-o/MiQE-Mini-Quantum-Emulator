@@ -191,7 +191,7 @@ Plots the probability amplitudes associated with each basis state of the current
 * `output` (str or list[str]): the output format. if `'list'` (default) returns a list of the all basis states with their corresponding probability of being measured. If `'plot'` returns a Matplotlib bar chart of the same information.
 * `dims` (list[float, float]): the width and height of the plot. Defaulted to the default Matplotlib dimensions
 * `x_rot` (float): the rotation (in degrees) of the xtick marks/labels. This is the same as in Matplotlib. Defaulted to 0.
-* `by_qubit` (bool): if False (default) returns information about the probabilities associated with standard basis states. If True, returns information on the probability of measuring each qubit index, irrespective of the other outcome states.
+* `by_qubit` (bool): if False (default) returns information about the probabilities associated with standard basis states. If True, returns information on the probability of measuring 0 or 1 at each qubit index.
 
 ### Helper Methods
 
