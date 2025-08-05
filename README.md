@@ -47,3 +47,4 @@ Alternatively, just copy the code into the same Python code file without importi
 - More visualisation tools (circuit diagrams, Bloch spheres, graphs, etc.).
 - Improve efficiency and performance.
 - Expand algorithm support and extend functionality for more complex applications.
+- Allow for controlled gates to act over multiple target qubits.
