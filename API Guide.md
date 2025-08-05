@@ -228,4 +228,4 @@ Runs a quantum circuit (built as a function) a set number of times and outputs i
 * `output` (str or list[str]): the output format. if `'list'` (default) returns a list of the all measured basis states and the number of times that state was measured. If `'plot'` returns a Matplotlib bar chart of the same information.
 * `dims` (list[float, float]): the width and height of the plot. Defaulted to the default Matplotlib dimensions
 * `x_rot` (float): the rotation (in degrees) of the xtick marks/labels. This is the same as in Matplotlib. Defaulted to 0.
-* `by_qubit` (bool): if False (default) returns information about the outcome measurements associated with standard basis states. If True, returns information on the number of time each qubit index was measured in the 0 or 1 state.
+* `by_qubit` (bool): if False (default) returns information about the outcome measurements associated with standard basis states. If True, returns information on the number of times each qubit index was measured in the 0 or 1 state.
