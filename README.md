@@ -52,3 +52,7 @@ Alternatively, just copy the code into the same Python code file without importi
 - Improve efficiency and performance.
 - Expand algorithm support and extend functionality for more complex applications.
 - Allow for controlled gates to act over multiple target qubits.
+
+---
+
+MiQE logo created by EWMC.
