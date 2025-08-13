@@ -55,4 +55,4 @@ Alternatively, just copy the code into the same Python code file without importi
 
 ---
 
-MiQE logo created by EWMC.
+Logo designed and created by EWMC.
