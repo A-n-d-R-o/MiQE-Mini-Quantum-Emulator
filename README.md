@@ -1,5 +1,9 @@
 ![WIP](https://img.shields.io/badge/status-WIP-yellow)
 
+<p align="center">
+  <img src="logo.png" width="350"/>
+</p>
+
 # MiQE: Mini Quantum Emulator
 
 **Single-file quantum computer emulator. Runs on Python.**  
